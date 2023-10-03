@@ -43,7 +43,7 @@ FROM superstore
 WHERE category="Kitchen Supplies"
 
 #Show the items that have a quantity of 50 or more items in stock.
-SELECT item_name
+SELECT item_name, stock_quantity
 FROM superstore
-WHERE stock_quantity>49
-ORDER BY item_name;
+WHERE stock_quantity>=50
+ORDER BY stock_quantity asc;
