@@ -40,7 +40,7 @@ FROM superstore;
 #Show a statistic about the price for items in the category of "Kitchen Supplies". 
 SELECT max(price)
 FROM superstore
-WHERE catergory="Kitchen Supplies"
+WHERE category="Kitchen Supplies"
 
 #Show the items that have a quantity of 50 or more items in stock.
 SELECT item_name
