@@ -1,0 +1,69 @@
+# This analysis utilizes the following data over famous singers:
+
+CREATE TABLE singers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    collaborator_id INTEGER);
+
+INSERT INTO singers (id, fullname, collaborator_id)
+VALUES
+    (1, 'Arianna Grande', 6),
+    (2, 'Taylor Swift', 4),
+    (3, 'Justin Beiber', 5),
+    (4, 'John Mayer', 2),
+    (5, 'Selena Gomez', 3),
+    (6, 'Mac Miller', 1);
+
+CREATE TABLE collaboration_songs (
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     singer_id INTEGER,
+     name TEXT);
+
+INSERT INTO collaboration_songs (singer_id, name)
+VALUES 
+    (1, 'The Way'),
+    (2, 'Half of My Heart'),
+    (3, 'Im Sorry'),
+    (4, 'Half of My Heart'),
+    (5, 'Im Sorry'),
+    (6, 'The Way');
+SELECT * FROM collaboration_songs;
+
+CREATE TABLE couples (
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     singer1_id INTEGER,
+     singer2_id INTEGER);
+
+INSERT INTO couples (singer1_id, singer2_id)
+VALUES
+    (1, 6),
+    (2, 4),
+    (3, 5),
+    (4, 2),
+    (5, 3),
+    (6, 1);
+
+# Analysis 
+
+# Self JOIN
+# Show the names of each singer, next to the name of the person they collaborated with.
+SELECT singers.fullname, collaborators.fullname as collaborator 
+FROM singers
+JOIN singers collaborators
+ON singers.collaborator_id = collaborators.id;
+
+# Inner JOIN 
+# Create a table showing the singer's names, with the songs where they collaborated with someone.
+SELECT s.fullname, c.name as collaboration_song
+FROM singers s
+JOIN collaboration_songs c
+ON s.id = c.singer_id;
+    
+# Combining Multiple JOINs 
+# Create a table showing the names of each couple, based on the data in the couples table.
+SELECT a.fullname, b.fullname as partner
+FROM couples
+JOIN singers a
+ON a.id = couples.singer1_id
+JOIN singers b
+ON b.id = couples.singer2_id;
