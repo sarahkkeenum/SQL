@@ -28,4 +28,13 @@ time_signature integer NOT NULL
 
 #Next, I explored the data using the following SQL. 
 
-#First I determined the
+#First I determined which songs have a tempo faster than 150.
+SELECT track_name, tempo
+FROM BIT_DB.Spotifydata
+WHERE tempo>150;
+
+#Then I determined which tracks were in the top 5 for popularity.
+SELECT track_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity desc
+LIMIT 5;
