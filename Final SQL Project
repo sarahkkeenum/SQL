@@ -11,14 +11,46 @@ FROM chinook.customers
 WHERE Country = "Brazil";
 
 #3. 
-SELECT c.FirstName, c.LastName, i.InvoiceId, i.BillingCountry, i.InvoiceDate
-FROM chinook.invoices as i
-LEFT JOIN chinook.customers as c
-on i.CustomerId = c.CustomerId 
-WHERE i.BillingCountry = "Brazil";
+SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
+FROM chinook.invoices as inv 
+LEFT JOIN chinook.customers as cust 
+on inv.CustomerId = cust.CustomerId 
+WHERE inv.BillingCountry = "Brazil";
 
 #4. 
 SELECT * 
 FROM chinook.Employees
 WHERE Title = "Sales Support Agent" ;
+
+#5. 
+SELECT DISTINCT BillingCountry 
+FROM chinook.Invoices ;
+
+#6.
+SELECT emp.LastName, emp.Firstname, inv.InvoiceId
+FROM chinook.Employees emp 
+JOIN chinook.Customers cust ON cust.SupportRepId = emp.EmployeeId
+JOIN chinook.Invoices Inv ON Inv.CustomerId = cust.CustomerId;
+
+#7.
+
+#8.
+SELECT Count(InvoiceDate)
+FROM chinook.invoices
+WHERE InvoiceDate LIKE '2009%';
+OR
+SELECT COUNT(*)
+FROM chinook.Invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
+
+#9.
+SELECT SUM(items.UnitPrice), inv.InvoiceDate
+FROM chinook.Invoices inv
+JOIN chinook.Invoice_Items items
+ON inv.InvoiceID = items.InvoiceID
+WHERE InvoiceDate LIKE '2009%';
+OR 
+SELECT SUM(Total)
+FROM chinook.Invoices
+WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
 
