@@ -1,0 +1,24 @@
+# Description (base it off of her previous descriptions)
+
+#1. 
+SELECT FirstName, LastName, CustomerID, Country
+FROM chinook.customers
+WHERE Country <> "USA";
+
+#2. 
+SELECT *
+FROM chinook.customers
+WHERE Country = "Brazil";
+
+#3. 
+SELECT c.FirstName, c.LastName, i.InvoiceId, i.BillingCountry, i.InvoiceDate
+FROM chinook.invoices as i
+LEFT JOIN chinook.customers as c
+on i.CustomerId = c.CustomerId 
+WHERE i.BillingCountry = "Brazil";
+
+#4. 
+SELECT * 
+FROM chinook.Employees
+WHERE Title = "Sales Support Agent" ;
+
