@@ -1,4 +1,5 @@
-# Description (base it off of her previous descriptions)
+# For this project, I downloaded a dataset called chinook. 
+# The dataset represents a digital media store and includes tables for artists, albums, media tracks, invoices, and customers.
 
 #1. 
 SELECT FirstName, LastName, CustomerID, Country
