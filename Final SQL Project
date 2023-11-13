@@ -54,11 +54,6 @@ SELECT SUM(Total)
 FROM chinook.Invoices
 WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
 
-#9. 
-SELECT SUM(Total)
-FROM chinook.Invoices
-WHERE InvoiceDate BETWEEN '2009-01-01' AND '2009-12-31';
-
 #10. 
 SELECT t.Name, i.InvoiceLineId
 FROM chinook.Invoice_items i
