@@ -2,39 +2,43 @@
 # The dataset represents a digital media store and includes tables for artists, albums, media tracks, invoices, and customers.
 # I then performed analytics on the data using SQL. 
 
-#1. 
+#1. Show Customers (their full names, customer ID, and country) who are not in the US.
 SELECT FirstName, LastName, CustomerID, Country
 FROM chinook.customers
 WHERE Country <> "USA";
 
-#2. 
+#2. Show only the customers from Brazil.
 SELECT *
 FROM chinook.customers
 WHERE Country = "Brazil";
 
-#3. 
+#3. Find the Invoices of customers who are from Brazil. 
 SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
 FROM chinook.invoices as inv 
 LEFT JOIN chinook.customers as cust 
 on inv.CustomerId = cust.CustomerId 
 WHERE inv.BillingCountry = "Brazil";
 
-#4. 
+#4. Show the Employees who are Sales Agents.
 SELECT * 
 FROM chinook.Employees
 WHERE Title = "Sales Support Agent" ;
 
-#5. 
+#5. Find a unique/distinct list of billing countries from the Invoice table.
 SELECT DISTINCT BillingCountry 
 FROM chinook.Invoices ;
 
-#6.
+#6. Provide a query that shows the invoices associated with each sales agent. 
 SELECT emp.LastName, emp.Firstname, inv.InvoiceId
 FROM chinook.Employees emp 
 JOIN chinook.Customers cust ON cust.SupportRepId = emp.EmployeeId
 JOIN chinook.Invoices Inv ON Inv.CustomerId = cust.CustomerId;
 
-#7.
+#7. 
+SELECT emp.LastName, emp.Firstname, cust.FirstName, cust.LastName, cust.Country, inv.total
+FROM chinook.employees emp 
+JOIN chinook.Customers cust ON cust.SupportRepId = emp.EmployeeId
+JOIN chinook.Invoices Inv ON Inv.CustomerId = cust.CustomerId;
 
 #8.
 SELECT Count(InvoiceDate)
