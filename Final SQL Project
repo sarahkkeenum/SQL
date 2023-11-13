@@ -1,5 +1,6 @@
 # For this project, I downloaded a dataset called chinook. 
 # The dataset represents a digital media store and includes tables for artists, albums, media tracks, invoices, and customers.
+# I then performed analytics on the data using SQL. 
 
 #1. 
 SELECT FirstName, LastName, CustomerID, Country
