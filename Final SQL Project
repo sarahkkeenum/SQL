@@ -108,7 +108,7 @@ ON Inv.CustomerId = cust.CustomerId
 WHERE emp.Title = 'Sales Support Agent' 
 AND Inv.InvoiceDate LIKE '2009%' 
 GROUP BY emp.FirstName
-ORDER BY (round(sum(Inv.Total), 2))  DESC LIM
+ORDER BY (round(sum(Inv.Total), 2))  DESC LIM;
 
 #15. Show the employees who are managers. 
 SELECT LastName, FirstName, title
