@@ -25,7 +25,6 @@ time_signature integer NOT NULL
 )
 
 #Then I inserted the Spotify Data .csv into the table.
-
 #Next, I explored the data using the following SQL. 
 
 #First I determined which songs have a tempo faster than 150.
