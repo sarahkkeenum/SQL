@@ -21,7 +21,8 @@ liveness decimal(5,4) NOT NULL,
 valence decimal(4,3) NOT NULL,
 tempo decimal(6,3) NOT NULL,
 duration_ms integer NOT NULL,
-time_signature integer NOT NULL )
+time_signature integer NOT NULL 
+)
 
 #Then I inserted the Spotify Data .csv into the table.
 #Next, I explored the data using the following SQL. 
