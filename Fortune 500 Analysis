@@ -71,14 +71,14 @@ END AS Company_size
 FROM fortune_companies
 ORDER BY employees desc;
 
-# Want to see the average revenue for all the industries that made at least $300 Billion.
+# Want to see the average revenues for all the industries that made at least $300 Billion.
 SELECT industry, ROUND(AVG(revenue),1) as avg_revenue_billions
 FROM fortune_companies
 GROUP BY industry
 HAVING avg_revenue_billions>=300;
 
 # Which companies have healthcare benefits and at least 15 paid time off days?
-SELECT healthcare_benefits, paid_time_off_days, company_name
+SELECT company_name
 FROM fortune_companies
 WHERE healthcare_benefits=1
 AND paid_time_off_days>=15
