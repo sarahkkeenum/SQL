@@ -81,8 +81,7 @@ HAVING avg_revenue_billions>=300;
 SELECT company_name
 FROM fortune_companies
 WHERE healthcare_benefits=1
-AND paid_time_off_days>=15
-ORDER BY paid_time_off_days desc;
+AND paid_time_off_days>=15;
 
 # Which company generated the most revenue, and what's their revenue?
 SELECT company_name, MAX(revenue)
